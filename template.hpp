@@ -122,16 +122,3 @@ void horizontall(vector<long long>& v) {
         printf("%lld%c", v[i], (i==L-1)?'\n':' ');
     }
 }
-
-int main() {
-  int a;
-  cin >> a;
-
-  int N, M;
-  cin >> N >> M;
-
-  vector<int> T(N);
-  rep(i, N) { cin >> T.at(i); }
-
-  cout << N << endl;
-}
