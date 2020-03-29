@@ -1,17 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+ 
 #define NDEBUG
 #include <cassert>
-
-
+ 
+ 
 typedef long long ll;
 typedef long double Double;
 typedef unsigned long long ull;
 typedef pair<int,int> ii;
 typedef pair<ll,ll> llll;
 typedef pair<double,double> dd;
-
+ 
 typedef vector<int> vi;
 typedef vector<vector<int>> vvi;
 typedef vector<ii> vii;
@@ -23,7 +23,7 @@ typedef vector<bool> vb;
 typedef vector<string> vs;
 typedef vector<double> vd;
 typedef vector<long double> vD;
-
+ 
 #define sz(a)  int((a).size())
 #define pb  push_back
 #define eb  emplace_back
@@ -42,18 +42,18 @@ typedef vector<long double> vD;
 #define cons make_pair
 #define clamp(v,lo,hi) min(max(v,lo),hi)
 #define ABS(x) max((x),-(x))
-
+ 
 template<typename T1, typename T2> inline void amin(T1 & a, T2 const & b) { if (a>b) a=b; }
 template<typename T1, typename T2> inline void amax(T1 & a, T2 const & b) { if (a<b) a=b; }
 template<typename X, typename T> auto vectors(X x, T a) { return vector<T>(x, a); }
 template<typename X, typename Y, typename Z, typename... Zs> auto vectors(X x, Y y, Z z, Zs... zs) { auto cont = vectors(y, z, zs...); return vector<decltype(cont)>(x, cont); }
-
+ 
 inline ll square(ll x) { return x * x; }
 inline ll gcd(ll a, ll b) { while(a) swap(a, b%=a); return b; }
 inline ll lcm(ll a, ll b) { return a/gcd(a,b)*b; }
 template <typename T>
 inline T mod(T a, T b) { return ((a % b) + b) % b; }
-
+ 
 template <typename T>
 int find_left(vector<T>& v, T elem) {
     return (int)(upper_bound(v.begin(), v.end(), elem) - v.begin()) - 1;
@@ -62,24 +62,24 @@ template <typename T>
 int find_right(vector<T>& v, T elem) {
     return (int)(lower_bound(v.begin(), v.end(), elem) - v.begin());
 }
-
+ 
 const ll MOD=1000000007LL;
-
+ 
 inline ll ADD(ll x, ll y) { return (x+y) % MOD; }
 inline ll SUB(ll x, ll y) { return (x-y+MOD) % MOD; }
 inline ll MUL(ll x, ll y) { return x*y % MOD; }
 inline ll POW(ll x, ll e) { ll v=1; for(; e; x=MUL(x,x), e>>=1) if (e&1) v = MUL(v,x); return v; }
 inline ll INV(ll y) { /*assert(y%MOD!=0);*/ return POW(y, MOD-2); }
 inline ll DIV(ll x, ll y) { return MUL(x, INV(y)); }
-
+ 
 #define INTSPACE 12
 char _buf[INTSPACE*1000000 + 3];
-
+ 
 int loadint() {
     if (fgets(_buf, INTSPACE+3, stdin)==NULL) return 0;
     return atoi(_buf);
 }
-
+ 
 int loadvec(vector<int>& v, int N=-1) {
     if (N == 0) {
         v.clear();
@@ -92,7 +92,7 @@ int loadvec(vector<int>& v, int N=-1) {
     int bufsize = INTSPACE*N + 3;
     if (fgets(_buf, bufsize, stdin)==NULL) return 0;
     v.resize(N);
-
+ 
     int i=0;
     bool last = false;
     for (char *p=&_buf[0]; ;) {
@@ -123,45 +123,19 @@ void horizontall(vector<long long>& v) {
     }
 }
 
-int main()
-{
-    // variable
-    int N;
-    long long NN;
+int main() {
+  int N, K;
+  cin >> N >> K;
 
-    // if
-    if (true) {} else {}
+  vector<int> A(N);
+  rep(i, N) { cin >> A.at(i); }
+  ll gcd_A = A[N - 1];
+  rep(i, N - 1) { gcd_A = gcd(gcd_A, A[i]); }
 
-    // user IO
-    cin >> N;
-    cout << N;         // w/o new line
-    cout << N << endl; // w/ new line
-
-    vector<int> vec(N);
-    for (int i = 0; i < N; i++){cin >> vec.at(i);}  // get array of int with size N
-
-    // vector /////////////////////////////////////////////////
-    // init
-    vector<int> X(N);
-    // for loop
-    for (int i = 0; i < N; i++){
-        cout << X[i] << " " << endl;
-    }
-    // sort
-    sort(X.begin(), X.end(), greater<int>()); // 昇順 ascending
-    sort(X.begin(), X.end(), greater<int>()); // 降順 descending
-    // max
-    cout << *max_element(X.begin(), X.end()) << endl;
-
-    // map ////////////////////////////////////////////////////
-    map<int, int> x;
-    x[2] = 1;
-    x[3] = 1;
-
-    // iterate over key and value
-    for (auto it : x) {
-        cout << it.first << " " << it.second << endl;
-    }
-
-    // mathematics /////////////////////////////////////////////////
+  ll max_A = *max_element(A.begin(), A.end());
+  if (K > max_A || K % gcd_A != 0) {
+    cout << "IMPOSSIBLE" << endl;
+  } else {
+    cout << "POSSIBLE" << endl;
+  }
 }
