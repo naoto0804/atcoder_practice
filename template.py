@@ -1,3 +1,7 @@
+# Make IO faster
+import sys
+input = sys.stdin.readline
+
 # get single (or) multiple str
 X = input()
 
