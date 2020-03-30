@@ -8,7 +8,7 @@ X = input()
 # get single int
 N = int(input())
 # get multiple int (e.g., 2)
-X, Y = list(map(int, input().split()))
+X, Y = map(int, input().split())
 # get multiple int (e.g., 2) for N lines
 XY = [list(map(int, input().split())) for _ in range(N)]
 
