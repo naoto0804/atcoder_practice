@@ -1,5 +1,8 @@
 // ref: https://github.com/y-shindoh/pc_challenge_book/blob/master/2.4/q_2.4.3.cpp
-
+// find is O(alpha(N)) < O(logN), where alpha is inverse of Ackermann function
+// using path reduction or merge by rank only, time complexity is O(logN)
+// path reduction: directly connect every child to it's root when using find
+// merge by rank only: when using union, connect small tree's root to large tree's root
 #include "template.hpp"
 
 template <typename TYPE>
