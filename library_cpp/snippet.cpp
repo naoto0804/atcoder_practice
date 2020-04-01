@@ -37,7 +37,7 @@ int main()
         cout << X[i] << " " << endl;
     }
     // sort
-    sort(X.begin(), X.end(), greater<int>()); // 昇順 ascending
+    sort(X.begin(), X.end()); // 昇順 ascending
     sort(X.begin(), X.end(), greater<int>()); // 降順 descending
     // max
     cout << *max_element(X.begin(), X.end()) << endl;
