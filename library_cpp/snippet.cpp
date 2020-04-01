@@ -42,6 +42,13 @@ int main()
     // max
     cout << *max_element(X.begin(), X.end()) << endl;
 
+    // argsort
+    vector<int> indices(N), array(N);
+    iota(indices.begin(), indices.end(), 0);
+    sort(indices.begin(), indices.end(), [&array](size_t i1, size_t i2) {
+        return array[i1] < array[i2];
+    });
+
     // map ////////////////////////////////////////////////////
     // see http://vivi.dyndns.org/tech/cpp/map.html
     map<int, int> x;
