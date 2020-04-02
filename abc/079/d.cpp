@@ -43,35 +43,25 @@ void warshall_floyd(Graph &graph) {
  * ABC 073 D - joisino's travel
  */
 void Main() {
-    int N, M, R;
-    cin >> N >> M >> R;
-    vector<int> r_list(R);
-    rep(i, R) cin >> r_list[i];
+    int H, W;
+    cin >> H >> W;
 
-    Graph graph(N, vector<ll>(N, INF));
-    rep(i, M) {
-        int a, b, c;
-        cin >> a >> b >> c;
-        a--;
-        b--;
-        graph[a][b] = c;
-        graph[b][a] = c;
+    // vector<vector<int>> c(10, vector<int>(10));
+    // rep(i, 10){rep(j, 10){int tmp; cin >> tmp; c[i].push_back(tmp);}}
+
+    Graph graph(10, vector<ll>(10, INF));
+    rep(i, 10) {
+        rep(j, 10) {
+            int tmp;
+            cin >> tmp;
+            graph[i][j] = tmp;
+        }
     }
     warshall_floyd(graph);
 
-    sort(r_list.begin(), r_list.end());
-
-    ll ans = INF;
-    do {
-        int start = r_list[0] - 1;
-        ll tmp = 0;
-        rep2(i, 1, R) {
-            tmp += graph[start][r_list[i] - 1];
-            start = r_list[i] - 1;
-        }
-        ans = min(ans, tmp);
-    } while ((next_permutation(r_list.begin(), r_list.end()))); // いわゆる全列挙
-    cout << ans << '\n';
+    ll ans = 0;
+    rep(i, H) {rep(j, W) {int a; cin >> a; if (a != -1){ans += graph[a][1];}}}
+    cout << ans << endl;
 }
 
 int main() {
