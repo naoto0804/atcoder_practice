@@ -24,19 +24,37 @@ const ll INF = 1000000000000000000L;
 
 #endif
 
+// 約数列挙
+vector<ll> divisor(ll N) {
+    vector<ll> res;
+    for (ll i = 1L; i * i <= N; ++i) {
+        if (N % i == 0) {
+            res.push_back(i);
+            ll j = N / i;
+            if (j != i)  {
+                res.push_back(j);
+            }
+        }
+    }
+    sort(res.begin(), res.end());
+    return res;
+}
+
 void Main() {
     int N;
-    cin >> N;
     int X[N];
-
-    rep(i, N){cin >> X[i];}
     ll ans = INF;
+    cin >> N;
+    rep(i, N){cin >> X[i];}
+    cout << N << endl;
     rep2(x, 1, 101){
         ll tmp = 0;
         rep(j, N){
             tmp = tmp + ((X[j] - x) * (X[j] - x));
+            // cout << x << " " << j << " " << tmp << endl;
         }
         if (ans > tmp){ans = tmp;}
+        // cout << x << " " << ans << endl;
     }
     cout << ans << endl;
 }
