@@ -77,5 +77,11 @@ int main()
     q.top();  // element of the first priority
     q.pop();  // remove a.top()
 
+    // tuple
+    tuple<int, int, int> tmp;
+    int& cur_y = get<0>(tmp);
+    int& cur_x = get<1>(tmp);
+    int& cur_cost = get<2>(tmp);
+
     // mathematics /////////////////////////////////////////////////
 }
