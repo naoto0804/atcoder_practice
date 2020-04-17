@@ -49,6 +49,14 @@ int main()
         return array[i1] < array[i2];
     });
 
+    // binary search
+    vector<int> a = {1, 4, 4, 7, 7, 8, 8, 11, 13, 19};
+    auto iter = lower_bound(a.begin(), a.end(), 4); // key <= x なもののうち一番左の位置
+    auto iter = upper_bound(a.begin(), a.end(), 4); // key < x なもののうち一番左の位置
+    cout << binary_search(a.begin(), a.end(), 4) << endl; // 有無をboolで返す
+    cout << *iter << endl; // 見つかった値を表示
+    cout << iter - a.begin() << endl; // 0-based indexを表示
+
     // map ////////////////////////////////////////////////////
     // see http://vivi.dyndns.org/tech/cpp/map.html
     map<int, int> x;
