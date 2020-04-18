@@ -82,7 +82,7 @@ int main()
     priority_queue<int> q; // 大きい方から取り出し
     // std::priority_queue< int, std::vector<int>, std::greater<int> > q; 小さい方から取り出し
     q.push(33);
-    q.top();  // element of the first priority
+    auto v = q.top();  // element of the first priority, queueだとfrontなので注意
     q.pop();  // remove a.top()
 
     // tuple
@@ -90,6 +90,11 @@ int main()
     int& cur_y = get<0>(tmp);
     int& cur_x = get<1>(tmp);
     int& cur_cost = get<2>(tmp);
+
+    // pair
+    pair<ll, ll> p = make_pair(1, 1);
+    cout << p.first << endl;
+    cout << p.second << endl;
 
     // mathematics /////////////////////////////////////////////////
 }
