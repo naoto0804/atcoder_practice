@@ -73,7 +73,11 @@ int main()
     set<int> st{3, 1, 4, 6, 7};
     st.insert(2);
     st.erase(3);
-    return 1;
+    auto it = st.find(6);
+    if (it != st.end()){cout << *it << endl;}
+    // return 1;
+
+    // deque
 
     // priority_queue
     // 大きい方からも小さい方からも取り出せる
