@@ -84,7 +84,7 @@ int main()
     // https://qiita.com/y_shindoh/items/17d9fa334a2cb8e74bfa
     int a[] = {5, 4, 6, 3, 7, 2, 8, 1, 9, 0};
     priority_queue<int> q; // 大きい方から取り出し
-    // std::priority_queue< int, std::vector<int>, std::greater<int> > q; 小さい方から取り出し
+    // priority_queue< int, vector<int>, greater<int> > q; 小さい方から取り出し
     q.push(33);
     auto v = q.top();  // element of the first priority, queueだとfrontなので注意
     q.pop();  // remove a.top()
