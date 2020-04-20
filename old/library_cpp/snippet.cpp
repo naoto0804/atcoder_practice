@@ -89,6 +89,21 @@ int main()
     auto v = q.top();  // element of the first priority, queueだとfrontなので注意
     q.pop();  // remove a.top()
 
+    // 拡張priority queue (llを２つ格納，１つ目でソート)
+    using P = pair<ll, ll>;
+    class CompareFirst{ public:
+        bool operator()(P n1, P n2) {
+            // return n1.first>n2.first; //>:昇順　pairのfirst同士を比較する
+            return n1.first < n2.first; // 降順
+        }
+    };
+    priority_queue<P, vector<P>, CompareFirst> q;
+    q.push(make_pair(1, 2));
+    P p = q.top();
+    q.pop();
+    ll e1 = p.first;
+    ll e2 = p.second;
+
     // tuple
     tuple<int, int, int> tmp;
     int& cur_y = get<0>(tmp);

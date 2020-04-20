@@ -25,8 +25,30 @@ const ll INF = 1000000000000000000L;
 #endif
 
 void Main() {
+    ll N, K;
+    cin >> N >> K;
+    vector<ll> A(N);
+    rep(i, N){cin >> A.at(i);}
 
+    ll right = 0;
+    ll sum = 0;
+    ll res = 0;
 
+    // 尺取法の亜種(あるところで条件を満たすと，その右側はすべて条件を満たす)
+    for (ll left = 0; left < N; ++left){
+        while (sum < K){
+            if (right == N){
+                break;
+            } else {
+                sum += A.at(right);
+                right++;
+            }
+        }
+        if (sum < K){break;}
+        res += (N - right + 1); // rightがそれ以上伸びた時は全部カウントできる
+        sum -= A.at(left);
+    }
+    cout << res << endl;
 }
 
 int main() {
