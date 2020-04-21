@@ -5,9 +5,9 @@ using namespace std;
 using ll = long long;
 using P = pair<ll, ll>;
 using Graph = vector<vector<ll>>;
-#define rep(i, n) for (ll i = 0; i < (ll)(n); i++)
-#define rep2(i, m, n) for (ll i = m; i < (ll)(n); i++)
-#define rrep(i, n, m) for (ll i = n; i >= (ll)(m); i--)
+#define rep(i, n) for(ll i=0;i<(ll)(n);i++)
+#define rep2(i, m, n) for(ll i=m;i<(ll)(n);i++)
+#define rrep(i, n, m) for(ll i=n;i>=(ll)(m);i--)
 const int dx[4] = {1, 0, -1, 0};
 const int dy[4] = {0, 1, 0, -1};
 const int ddx[8] = {0, 1, 1, 1, 0, -1, -1, -1};
@@ -24,59 +24,34 @@ const ll INF = 1000000000000000000L;
 
 #endif
 
-void Main()
-{
-    ll N;
-    cin >> N;
-    vector<vector<int>> G(N);
-    vector<pair<int, int>> vp;
-    rep(i, N)
-    {
-        int a, b;
-        cin >> a >> b;
-        a--;
-        b--;
-        G[a].emplace_back(b);
-        G[b].emplace_back(a);
-        vp.emplace_back(a, b);
-    }
-    int K = 0; // 次数の最大値の管理
-    map<pair<int, int>, int> I;
-    vector<int> cs(N, 0); // color of edge between its parent
+void Main() {
+    // 答えには単調性があるので，(nまでは必ず満たしn+1からは満たさない)マニュアル二部探索
+    ll A, B, X; cin >> A >> B >> X;
 
-    // node番号0を根とした木とみなして，幅優先探索(BFS)
-    vector<int> used(N, 0);
-    queue<int> que;
-    used[0] = 1;
-    que.emplace(0);
-
-    while (!que.empty())
-    {
-        int v = que.front();
-        que.pop();
-        if (K < (int)G[v].size())
-            K = G[v].size();
-        int cur = 1;
-        // vからuにエッジを貼る時は，できるだけ小さい色で貼る
-        for (int u : G[v])
-        {
-            if (used[u])
-                continue;
-            if (cur == cs[v])
-                cur++;
-            cs[u] = I[make_pair(u, v)] = I[make_pair(v, u)] = cur++;
-            used[u] = 1;
-            que.emplace(u);
+    ll low = 1;
+    ll high = 1000000000;
+    while (true){
+        ll mid = (low + high) / 2;
+        ll ndigit = (ll)(log10(mid) + 1);
+        if ((low == mid) || (mid == high)){
+            if (((A * (mid + 1) + B * ndigit) <= X) && (1<= mid + 1 <= 1000000000)){
+                cout << mid + 1 << endl;
+            } else if ((A * mid + B * ndigit <= X) && (1<= mid <= 1000000000)){
+                cout << mid << endl;
+            } else {
+                cout << 0 << endl;
+            }
+            break;
+        }
+        if ((A * mid + B * ndigit) <= X){
+            low = mid;
+        } else {
+            high = mid;
         }
     }
-
-    cout << K << endl;
-    for (auto p : vp)
-        cout << I[p] << endl;
 }
 
-int main()
-{
+int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
     cout << fixed << setprecision(15);
