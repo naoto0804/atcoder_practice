@@ -114,6 +114,13 @@ int main()
     pair<ll, ll> p = make_pair(1, 1);
     cout << p.first << endl;
     cout << p.second << endl;
+    // how to sort pair? https://www.geeksforgeeks.org/sorting-vector-of-pairs-in-c-set-1-sort-by-first-and-second/
+    // Driver function to sort the vector elements
+    // by second element of pairs
+    bool sortbysec(const pair<ll, ll> &a, const pair<ll, ll> &b){
+        return (a.second < b.second);
+    }
+    sort(vect.begin(), vect.end(), sortbysec);
 
     // mathematics /////////////////////////////////////////////////
 }
