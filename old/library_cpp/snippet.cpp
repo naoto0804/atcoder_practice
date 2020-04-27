@@ -45,7 +45,7 @@ int main()
     // argsort
     vector<int> indices(N), array(N);
     iota(indices.begin(), indices.end(), 0);
-    sort(indices.begin(), indices.end(), [&array](size_t i1, size_t i2) {
+    sort(indices.begin(), indices.end(), [&array](ll i1, ll i2) {
         return array[i1] < array[i2];
     });
 
