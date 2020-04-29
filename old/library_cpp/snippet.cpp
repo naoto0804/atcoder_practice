@@ -46,7 +46,7 @@ int main()
     vector<int> indices(N), array(N);
     iota(indices.begin(), indices.end(), 0);
     sort(indices.begin(), indices.end(), [&array](ll i1, ll i2) {
-        return array[i1] < array[i2];
+        return array[i1] < array[i2]; // これは昇順
     });
 
     // binary search
