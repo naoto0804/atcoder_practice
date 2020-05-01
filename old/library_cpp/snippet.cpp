@@ -19,6 +19,7 @@ int main()
 
     // string /////////////////////////////////////////////////
     string s = "hoge";
+    cout << s.substr(1, 2) << endl; // get "og"
 
     // insert and delete
     s.insert(s.begin() + 2, '-');
@@ -39,6 +40,8 @@ int main()
     // sort
     sort(X.begin(), X.end()); // 昇順 ascending
     sort(X.begin(), X.end(), greater<int>()); // 降順 descending
+    X.erase(std::unique(X.begin(), X.end()), X.end()); // keep only unique elements
+
     // max
     cout << *max_element(X.begin(), X.end()) << endl;
 
