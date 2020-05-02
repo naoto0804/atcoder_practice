@@ -32,14 +32,14 @@ int main()
 
     // vector /////////////////////////////////////////////////
     // init
-    vector<int> X(N);
+    vector<ll> X(N);
     // for loop
     for (int i = 0; i < N; i++){
         cout << X[i] << " " << endl;
     }
     // sort
     sort(X.begin(), X.end()); // 昇順 ascending
-    sort(X.begin(), X.end(), greater<int>()); // 降順 descending
+    sort(X.begin(), X.end(), greater<ll>()); // 降順 descending
     X.erase(std::unique(X.begin(), X.end()), X.end()); // keep only unique elements
 
     // max
