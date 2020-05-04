@@ -4,7 +4,7 @@ A = list(map(int, input().split()))
 M = int(input())
 B = list(map(int, input().split()))
 
-
+# 二分探索
 def binary_search(arr, l, r, x):
     while l < r:
         mid = l + (r - l) // 2

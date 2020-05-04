@@ -125,7 +125,7 @@ int main()
     // Driver function to sort the vector elements
     // by second element of pairs
     bool sortbysec(const pair<ll, ll> &a, const pair<ll, ll> &b){
-        return (a.second < b.second);
+        return (a.second < b.second); // 昇順
     }
     sort(vect.begin(), vect.end(), sortbysec);
 
