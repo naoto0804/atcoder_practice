@@ -26,13 +26,25 @@ const ll INF = 1000000000000000000L;
 
 void Main() {
     ll N; cin >> N;
-    ll MAX = 100000;
-    ll a[MAX]; rep(i, MAX){a[i] = 0;}
-    rep(i, N){ll tmp; cin >> tmp; a[tmp-1] += 1;}
+
+    // 変えるべきもののindexを保管
+    vector<ll> ng;
+    vector<ll> p(N); rep(i, N){
+        cin >> p.at(i);
+        if (p.at(i) == (i + 1)){
+            ng.push_back(i);
+        }
+    }
+    ll i = 0;
     ll ans = 0;
-    rep(i, MAX - 2){
-        ll tmp = a[i] + a[i + 1] + a[i + 2];
-        if (tmp > ans){ans = tmp;}
+    while (i < ng.size()){
+        // 連続しておかしい場合，一気に塗り替えられる
+        if ((i + 1) < ng.size() && (ng.at(i) + 1) == ng.at(i + 1)){
+            i += 2;
+        } else {
+            i += 1;
+        }
+        ans++;
     }
     cout << ans << endl;
 }
