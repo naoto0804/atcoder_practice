@@ -14,7 +14,11 @@ int main()
     cout << N;         // w/o new line
     cout << N << endl; // w/ new line
 
-    vector<int> vec(N);
+    vector<int> vec; // empty array
+    vector<int> vec1(N); // can specify number of elements
+    vector<int> vec2(vec); // can deep copy
+    vector<int> vec3{ 3, 3, 4 }; // can assign values directly
+
     for (int i = 0; i < N; i++){cin >> vec.at(i);}  // get array of int with size N
 
     // string /////////////////////////////////////////////////
