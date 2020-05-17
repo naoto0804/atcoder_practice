@@ -46,6 +46,10 @@ int main()
     sort(X.begin(), X.end(), greater<ll>()); // 降順 descending
     X.erase(std::unique(X.begin(), X.end()), X.end()); // keep only unique elements
 
+    // remove duplicates
+    sort(X.begin(), X.end());
+    X.erase(unique(X.begin(), X.end()), X.end());
+
     // max
     cout << *max_element(X.begin(), X.end()) << endl;
 
