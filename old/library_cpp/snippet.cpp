@@ -68,9 +68,13 @@ int main()
     cout << *iter << endl; // 見つかった値を表示
     cout << iter - a.begin() << endl; // 0-based indexを表示
 
+    // 二次元配列
+    vector<vector<ll>> cnt(3, vector<ll>(26, 0));
+
     // insert
     auto iter = lower_bound(a.begin(), a.end(), 6);
     a.insert(iter, 6);
+
 
     // map ////////////////////////////////////////////////////
     // see http://vivi.dyndns.org/tech/cpp/map.html
