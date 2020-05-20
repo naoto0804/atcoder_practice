@@ -79,6 +79,7 @@ int main()
     // map ////////////////////////////////////////////////////
     // see http://vivi.dyndns.org/tech/cpp/map.html
     map<int, int> x;
+    std::map<int, int, std::greater<int> > m; // iterateする時に降順で出てきてほしい場合
     x[2] = 1;
     x[3] = 1;
     // cout << x.find(2) != x.end() << endl; // whether 2 exists in x
