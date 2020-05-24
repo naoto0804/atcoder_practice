@@ -38,6 +38,7 @@ void Main() {
 
     q.push(make_pair(0, 0)); // (from, dest)
     ll cnt = 0;
+    // 幅優先探索
     while (q.size() > 0){
         P next = q.front();
         ll dest = next.second;
