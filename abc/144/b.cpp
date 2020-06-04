@@ -26,12 +26,14 @@ const ll INF = 1000000000000000000L;
 
 
 void Main() {
-    ll A, B; cin >> A >> B;
-    if (A - 2 * B <= 0){
-        cout << 0 << endl;
-    } else {
-        cout << A - 2 * B << endl;
+    ll N; cin >> N;
+    rep2(i, 1, 10){
+        if (N % i == 0 && 1 <= N / i && N / i <= 9){
+            cout << "Yes" << endl;
+            exit(0);
+        }
     }
+    cout << "No" << endl;
 }
 
 int main() {

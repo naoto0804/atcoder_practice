@@ -26,12 +26,12 @@ const ll INF = 1000000000000000000L;
 
 
 void Main() {
-    ll A, B; cin >> A >> B;
-    if (A - 2 * B <= 0){
-        cout << 0 << endl;
-    } else {
-        cout << A - 2 * B << endl;
-    }
+    string S; cin >> S;
+    map<string, string> x;
+    x["Sunny"] = "Cloudy";
+    x["Cloudy"] = "Rainy";
+    x["Rainy"] = "Sunny";
+    cout << x[S] << endl;
 }
 
 int main() {

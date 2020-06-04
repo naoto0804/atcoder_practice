@@ -26,12 +26,22 @@ const ll INF = 1000000000000000000L;
 
 
 void Main() {
-    ll A, B; cin >> A >> B;
-    if (A - 2 * B <= 0){
-        cout << 0 << endl;
-    } else {
-        cout << A - 2 * B << endl;
+    string S; cin >> S;
+    set<char> odd = {'R', 'U', 'D'};
+    set<char> even = {'L', 'U', 'D'};
+    rep(i, S.size()){
+        if (i % 2 == 0){
+            if (odd.find(S.at(i)) == odd.end()){
+                cout << "No" << endl; exit(0);
+            }
+        } else {
+            if (even.find(S.at(i)) == even.end()){
+                cout << "No" << endl; exit(0);
+            }
+
+        }
     }
+    cout << "Yes" << endl;
 }
 
 int main() {

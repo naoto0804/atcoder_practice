@@ -27,10 +27,10 @@ const ll INF = 1000000000000000000L;
 
 void Main() {
     ll A, B; cin >> A >> B;
-    if (A - 2 * B <= 0){
-        cout << 0 << endl;
+    if (1 <= A && A <= 9 && 1 <= B && B <= 9){
+        cout << A * B << endl;
     } else {
-        cout << A - 2 * B << endl;
+        cout << -1 << endl;
     }
 }
 

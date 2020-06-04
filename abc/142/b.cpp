@@ -26,12 +26,14 @@ const ll INF = 1000000000000000000L;
 
 
 void Main() {
-    ll A, B; cin >> A >> B;
-    if (A - 2 * B <= 0){
-        cout << 0 << endl;
-    } else {
-        cout << A - 2 * B << endl;
+    ll N, K; cin >> N >> K;
+    vector<ll> h(N);
+    ll ans = 0;
+    rep(i, N){
+        cin >> h.at(i);
+        if (h.at(i) >= K){ans++;}
     }
+    cout << ans << endl;
 }
 
 int main() {
