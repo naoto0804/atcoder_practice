@@ -97,6 +97,14 @@ int main()
     if (it != st.end()){cout << *it << endl;}
     // return 1;
 
+    // multiset (順序付けされたデータを複数保持する,重複を許すのがポイント)
+    // 内部は木で実装されていて，全操作がLogN
+    // http://vivi.dyndns.org/tech/cpp/multiset.html
+    // vectorとsetの関数がだいたい使える
+    set<int> st{3, 1, 4, 6, 7};
+    auto it = st.begin(); cout << *it << endl; // 最小を出す
+    auto it = st.end(); it--; cout << *it << endl; // 最大を出す
+
     // deque
 
     // priority_queue
