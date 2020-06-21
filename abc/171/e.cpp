@@ -25,8 +25,11 @@ const ll INF = 1000000000000000000L;
 #endif
 
 void Main() {
+    // (i) 各桁ごとに独立 (ii) 各桁の和のmod2が0なら反転せず，1なら反転
+    // xor演算子を@としてa1@a2@...@aNはN-1回繰り返された(b1@b2@..@bN)と同じ，Nが偶数なのでa1@a2@...@aN=b1@b2@..@bN
+    // 更にこの値をSとしてS+ai=(b1@b1)@..@(bi)@..@(bN@bN)=bi
     ll N; cin >> N;
-    ll MAX = 30;
+    ll MAX = 30; // 限界の大きさまでカバー
     ll bin[N][MAX];
     ll ans[N][MAX];
     rep(i, N){
