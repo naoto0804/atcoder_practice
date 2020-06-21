@@ -24,26 +24,38 @@ const ll INF = 1000000000000000000L;
 
 #endif
 
-vector<pair<char, ll>> RLE(const string &S) {
-    ll cnt = 0;
-    vector<pair<char, ll>> res;
-    for (ll i = 0; i < (ll) S.size(); i++) {
-        cnt++;
-        if (i == (ll) S.size() - 1) {
-            res.emplace_back(S[i], cnt);
-            break;
+// 素数列挙
+vector<int> prime_list(int n) {
+    vector<bool> is_prime(n + 1, true);
+    vector<int> res;
+    int i = 2;
+    while (pow(i, 2) <= n) {
+        if (is_prime[i]) {
+            int j = i + i;
+            while (j <= n) {
+                is_prime[j] = false;
+                j += i;
+            }
         }
-        if (S[i] != S[i + 1]) {
-            res.emplace_back(S[i], cnt);
-            cnt = 0;
+        i++;
+    }
+    for (int i = 0; i <= n; ++i) {
+        if (is_prime[i] && i >= 2) {
+            res.push_back(i);
         }
     }
     return res;
 }
 
 void Main() {
-    string S; cin >> S;
-    cout << RLE(S).size() - 1 << endl;
+    ll N; cin >> N;
+    vector<ll> x;
+    for (auto a: prime_list(55555)){
+        // cout << a << endl;
+        if (a % 5 == 1){x.push_back(a);}
+        if (x.size() >= N){break;}
+    }
+    for (auto a: x){cout << a << " ";}
 }
 
 int main() {

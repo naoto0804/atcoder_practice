@@ -24,26 +24,26 @@ const ll INF = 1000000000000000000L;
 
 #endif
 
-vector<pair<char, ll>> RLE(const string &S) {
+void Main() {
+    ll N, x; cin >> N >> x;
     ll cnt = 0;
-    vector<pair<char, ll>> res;
-    for (ll i = 0; i < (ll) S.size(); i++) {
-        cnt++;
-        if (i == (ll) S.size() - 1) {
-            res.emplace_back(S[i], cnt);
-            break;
-        }
-        if (S[i] != S[i + 1]) {
-            res.emplace_back(S[i], cnt);
-            cnt = 0;
+    vector<ll> a(N);
+    rep(i, N){cin >> a.at(i);}
+    rep(i, N - 1){
+        if (a.at(i) >= x){cnt += (a.at(i) - x); a.at(i) = x;}
+        ll b = a.at(i) + a.at(i + 1);
+        if (b >= x){
+            ll c = b - x;
+            if (c >= a.at(i + 1)){
+                cnt += a.at(i + 1);
+                a.at(i + 1) = 0;
+            } else {
+                cnt += c;
+                a.at(i + 1) -= c;
+            }
         }
     }
-    return res;
-}
-
-void Main() {
-    string S; cin >> S;
-    cout << RLE(S).size() - 1 << endl;
+    cout << cnt << endl;
 }
 
 int main() {

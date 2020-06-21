@@ -24,26 +24,29 @@ const ll INF = 1000000000000000000L;
 
 #endif
 
-vector<pair<char, ll>> RLE(const string &S) {
-    ll cnt = 0;
-    vector<pair<char, ll>> res;
-    for (ll i = 0; i < (ll) S.size(); i++) {
-        cnt++;
-        if (i == (ll) S.size() - 1) {
-            res.emplace_back(S[i], cnt);
-            break;
-        }
-        if (S[i] != S[i + 1]) {
-            res.emplace_back(S[i], cnt);
-            cnt = 0;
+void Main() {
+    ll N, T; cin >> N >> T;
+    ll ans = 0, cnt = 0;
+    vector<ll> A(N), acc_min(N); // この地点までの最小値を保存しておく
+    rep(i, N){
+        cin >> A.at(i);
+        if (i == 0){
+            acc_min.at(i) = A.at(i);
+        } else {
+            acc_min.at(i) = (A.at(i) < acc_min.at(i - 1)) ? A.at(i) : acc_min.at(i - 1);
         }
     }
-    return res;
-}
-
-void Main() {
-    string S; cin >> S;
-    cout << RLE(S).size() - 1 << endl;
+    ll zero = 0;
+    rep(i, N - 1){
+        ll tmp = max((ll) 0, A.at(i + 1) - acc_min.at(i)); // ここで売るとしたらいくらか？
+        if (tmp > ans){
+            ans = tmp; cnt = 1;
+        } else if (tmp == ans){
+            cnt++;
+        }
+    }
+    // 以上で列挙したポイントのスコアを1ずつ動かせば終了なので
+    cout << cnt << endl;
 }
 
 int main() {

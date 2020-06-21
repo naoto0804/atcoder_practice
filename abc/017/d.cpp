@@ -13,9 +13,9 @@ int main() {
     vector<int> f(N);
     for (int i = 0; i < N; ++i) cin >> f[i], --f[i];
 
-    /* しゃくとり法 */
+    /* 尺取法 */
     vector<int> fnum(M, 0); // 区間に種類 i が何個あるか
-    vector<int> L(N+1, 0); // 各 i に対するしゃくとり法の区間
+    vector<int> L(N+1, 0); // 各 i に対する尺取法の区間
     int left = 0;
     for (int right = 0; right < N; ++right) {
         fnum[f[right]]++;

@@ -24,26 +24,31 @@ const ll INF = 1000000000000000000L;
 
 #endif
 
-vector<pair<char, ll>> RLE(const string &S) {
-    ll cnt = 0;
-    vector<pair<char, ll>> res;
-    for (ll i = 0; i < (ll) S.size(); i++) {
-        cnt++;
-        if (i == (ll) S.size() - 1) {
-            res.emplace_back(S[i], cnt);
-            break;
-        }
-        if (S[i] != S[i + 1]) {
-            res.emplace_back(S[i], cnt);
-            cnt = 0;
+void Main() {
+    ll n; cin >> n;
+    vector<ll> odd, even, ans;
+    rep(i, n){
+        ll tmp;
+        cin >> tmp;
+        if (i % 2 == 0){
+            even.push_back(tmp);
+        } else {
+            odd.push_back(tmp);
         }
     }
-    return res;
-}
 
-void Main() {
-    string S; cin >> S;
-    cout << RLE(S).size() - 1 << endl;
+    // n が奇数: 奇数番目の反転 -> 偶数番目
+    // n が偶数: 偶数番目の反転 -> 奇数番目
+    if (n % 2 == 1){
+        reverse(even.begin(), even.end());
+        ans = even;
+        ans.insert(ans.end(), odd.begin(), odd.end());
+    } else {
+        reverse(odd.begin(), odd.end());
+        ans = odd;
+        ans.insert(ans.end(), even.begin(), even.end());
+    }
+    for (auto a: ans){cout << a << " ";}
 }
 
 int main() {

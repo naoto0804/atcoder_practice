@@ -24,26 +24,22 @@ const ll INF = 1000000000000000000L;
 
 #endif
 
-vector<pair<char, ll>> RLE(const string &S) {
-    ll cnt = 0;
-    vector<pair<char, ll>> res;
-    for (ll i = 0; i < (ll) S.size(); i++) {
-        cnt++;
-        if (i == (ll) S.size() - 1) {
-            res.emplace_back(S[i], cnt);
-            break;
-        }
-        if (S[i] != S[i + 1]) {
-            res.emplace_back(S[i], cnt);
-            cnt = 0;
-        }
-    }
-    return res;
-}
-
 void Main() {
-    string S; cin >> S;
-    cout << RLE(S).size() - 1 << endl;
+    string S, ans; cin >> S;
+    // cout << stoi(S.substr(0, 2)) << endl;
+    bool flag1 = false, flag2 = false; // YY formatが確定な時
+    int i1 = stoi(S.substr(0, 2)), i2 = stoi(S.substr(2, 2));
+    if (i1 >= 13 || i1 <= 0){flag1 = true;}
+    if (i2 >= 13 || i2 <= 0){flag2 = true;}
+    if (flag1 && flag2){
+        cout << "NA" << endl;
+    } else if (flag1 && !flag2){
+        cout << "YYMM" << endl;
+    } else if (!flag1 && flag2){
+        cout << "MMYY" << endl;
+    } else {
+        cout << "AMBIGUOUS" << endl;
+    }
 }
 
 int main() {

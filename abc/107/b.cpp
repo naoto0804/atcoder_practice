@@ -24,26 +24,34 @@ const ll INF = 1000000000000000000L;
 
 #endif
 
-vector<pair<char, ll>> RLE(const string &S) {
-    ll cnt = 0;
-    vector<pair<char, ll>> res;
-    for (ll i = 0; i < (ll) S.size(); i++) {
-        cnt++;
-        if (i == (ll) S.size() - 1) {
-            res.emplace_back(S[i], cnt);
-            break;
-        }
-        if (S[i] != S[i + 1]) {
-            res.emplace_back(S[i], cnt);
-            cnt = 0;
-        }
-    }
-    return res;
-}
-
 void Main() {
-    string S; cin >> S;
-    cout << RLE(S).size() - 1 << endl;
+    ll H, W; cin >> H >> W;
+    ll a[H][W];
+    rep(i, H){rep(j, W){
+        char c; cin >> c;
+        if (c == '#'){
+            a[i][j] = 1;
+        } else {
+            a[i][j] = 0;
+        }
+    }}
+    vector<ll> xcoords, ycoords;
+    rep(i, H){
+        ll tmp = 0;
+        rep(j, W){tmp += a[i][j];}
+        if (tmp != 0){ycoords.push_back(i);}
+    }
+    rep(j, W){
+        ll tmp = 0;
+        rep(i, H){tmp += a[i][j];}
+        if (tmp != 0){xcoords.push_back(j);}
+    }
+    for (auto y: ycoords){
+        for (auto x: xcoords){
+            if (a[y][x]){cout << "#";} else {cout << ".";}
+        }
+        cout << endl;
+    }
 }
 
 int main() {
