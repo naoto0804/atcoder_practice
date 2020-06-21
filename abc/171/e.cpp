@@ -32,6 +32,8 @@ void Main() {
     ll MAX = 30; // 限界の大きさまでカバー
     ll bin[N][MAX];
     ll ans[N][MAX];
+
+    // 値の上限を大まかに評価した上で二進数変換
     rep(i, N){
         ll a;
         cin >> a;
@@ -50,6 +52,7 @@ void Main() {
         }
     }
 
+    // 二進数to十進数
     rep(i, N){
         ll tmp = 0;
         rep(j, MAX){
