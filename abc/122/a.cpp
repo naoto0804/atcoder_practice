@@ -26,18 +26,12 @@ const ll INF = 1000000000000000000L;
 
 void Main() {
     string S; cin >> S;
-    ll max_cnt = 0, cnt = 0;
-    set<char> st{'A', 'T', 'G', 'C'};
-    rep(i, S.size()){
-        if (st.find(S[i]) != st.end()){
-            cnt++;
-        } else {
-            if (cnt > max_cnt){max_cnt = cnt;}
-            cnt = 0;
-        }
-    }
-    if (cnt > max_cnt){max_cnt = cnt;}
-    cout << max_cnt << endl;
+    string ans;
+    if (S == "A"){ans = "T";}
+    else if (S == "T"){ans = "A";}
+    else if (S == "C"){ans = "G";}
+    else if (S == "G"){ans = "C";}
+    cout << ans << endl;
 }
 
 int main() {
