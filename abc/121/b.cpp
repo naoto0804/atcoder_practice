@@ -25,8 +25,20 @@ const ll INF = 1000000000000000000L;
 #endif
 
 void Main() {
-
-
+    ll N, M, C; cin >> N >> M >> C;
+    vector<ll> B(M);
+    ll A[N][M];
+    rep(i, M){cin >> B.at(i);}
+    rep(i, N){rep(j, M){
+        cin >> A[i][j];
+    }}
+    ll ans = 0;
+    rep(i, N){
+        ll tmp = C;
+        rep(j, M){tmp += A[i][j] * B[j];}
+        if (tmp > 0){ans++;}
+    }
+    cout << ans << endl;
 }
 
 int main() {

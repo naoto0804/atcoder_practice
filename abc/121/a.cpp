@@ -25,8 +25,8 @@ const ll INF = 1000000000000000000L;
 #endif
 
 void Main() {
-
-
+    ll H, W, h, w; cin >> H >> W >> h >> w;
+    cout << (H - h) * (W - w) << endl;
 }
 
 int main() {
