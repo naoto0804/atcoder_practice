@@ -1,4 +1,3 @@
-// ctrl+shift+b
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -26,8 +25,14 @@ const ll INF = 1000000000000000000L;
 #endif
 
 void Main() {
-
-
+    ll M, D; cin >> M >> D;
+    ll ans = 0;
+    rep2(m, 1, M + 1){
+        rep2(d, 1, D + 1){
+            if (d / 10 >= 2 && d % 10 >= 2 && ((d % 10) * (d / 10) == m)){ans++;}
+        }
+    }
+    cout << ans << endl;
 }
 
 int main() {

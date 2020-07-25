@@ -1,4 +1,3 @@
-// ctrl+shift+b
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -26,8 +25,19 @@ const ll INF = 1000000000000000000L;
 #endif
 
 void Main() {
-
-
+    ll N, K; cin >> N >> K;
+    vector<ll> A(N);
+    rep(i, N){cin >> A.at(i);}
+    ll ans = 0;
+    rep(i, N){rep(j, N){
+        if (i >= j){continue;}
+        if (A.at(i) > A.at(j)){
+            ans = (ans + K * (K + 1) / 2) % MOD;
+        } else if (A.at(i) < A.at(j)){
+            ans = (ans + K * (K - 1) / 2) % MOD;
+        }
+    }}
+    cout << ans << endl;
 }
 
 int main() {

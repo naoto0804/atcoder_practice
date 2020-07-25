@@ -1,4 +1,3 @@
-// ctrl+shift+b
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -26,8 +25,8 @@ const ll INF = 1000000000000000000L;
 #endif
 
 void Main() {
-
-
+    ll N; cin >> N;
+    cout << (N - 1) / 2 << endl;
 }
 
 int main() {

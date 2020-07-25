@@ -26,8 +26,16 @@ const ll INF = 1000000000000000000L;
 #endif
 
 void Main() {
-
-
+    ll N; cin >> N;
+    vector<ll> A(N); rep(i, N){cin >> A.at(i);}
+    ll val = 1000;
+    rep(i, N - 1){
+        if (A.at(i) < A.at(i + 1)){
+            // cout << i << " " << val / A.at(i) << " " << A.at(i) << endl;
+            val += (val / A.at(i)) * (A.at(i + 1) - A.at(i));
+        }
+    }
+    cout << val << endl;
 }
 
 int main() {

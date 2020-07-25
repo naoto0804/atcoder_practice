@@ -1,4 +1,3 @@
-// ctrl+shift+b
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -25,9 +24,27 @@ const ll INF = 1000000000000000000L;
 
 #endif
 
+ll score(ll rank){
+    if (rank == 1){
+        return 300000;
+    } else if (rank == 2){
+        return 200000;
+    } else if (rank == 3){
+        return 100000;
+    } else {
+        return 0;
+    }
+}
+
 void Main() {
-
-
+    ll X, Y; cin >> X >> Y;
+    ll ans = 0;
+    ans += score(X);
+    ans += score(Y);
+    if (X == 1 && Y == 1){
+        ans += 400000;
+    }
+    cout << ans << endl;
 }
 
 int main() {

@@ -1,4 +1,3 @@
-// ctrl+shift+b
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -26,8 +25,18 @@ const ll INF = 1000000000000000000L;
 #endif
 
 void Main() {
-
-
+    ll N; cin >> N;
+    vector<string> s(N);
+    vector<ll> t(N);
+    rep(i, N){
+        cin >> s.at(i) >> t.at(i);
+    }
+    string X; cin >> X;
+    ll ans = 0;
+    rep2(i, find(s.begin(), s.end(), X) - s.begin() + 1, N){
+        ans += t.at(i);
+    }
+    cout << ans << endl;
 }
 
 int main() {

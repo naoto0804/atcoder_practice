@@ -26,8 +26,10 @@ const ll INF = 1000000000000000000L;
 #endif
 
 void Main() {
-
-
+    ll N; cin >> N;
+    rep(i, N){
+        ll x, y, p; cin >> x >> y >> p;
+    }
 }
 
 int main() {

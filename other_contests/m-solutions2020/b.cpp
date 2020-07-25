@@ -26,8 +26,12 @@ const ll INF = 1000000000000000000L;
 #endif
 
 void Main() {
-
-
+    ll A, B, C, K; cin >> A >> B >> C >> K;
+    ll cnt = 0;
+    while (A >= B){B *= 2; cnt++;}
+    while (B >= C){C *= 2; cnt++;}
+    // cout << cnt << endl;
+    if (cnt <= K){cout << "Yes" << endl;} else {cout << "No" << endl;}
 }
 
 int main() {
