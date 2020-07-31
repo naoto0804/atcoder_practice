@@ -1,18 +1,18 @@
-# Make IO faster
-import sys
-input = sys.stdin.readline
+# # Make IO faster
+# import sys
+# input = sys.stdin.readline
 
-# get single (or) multiple str
-X = input()
+# # get single (or) multiple str
+# X = input()
 
-# get single int
-N = int(input())
-# get multiple int (e.g., 2)
-X, Y = map(int, input().split())
-# get multiple int (e.g., 2) for N lines
-XY = [list(map(int, input().split())) for _ in range(N)]
+# # get single int
+# N = int(input())
+# # get multiple int (e.g., 2)
+# X, Y = map(int, input().split())
+# # get multiple int (e.g., 2) for N lines
+# XY = [list(map(int, input().split())) for _ in range(N)]
 
-from IPython import embed; embed(); exit();
+# from IPython import embed; embed(); exit();
 
 # 全部入り
 import sys, re
@@ -35,3 +35,9 @@ def ZIP(n): return zip(*(MAP() for _ in range(n)))
 sys.setrecursionlimit(10 ** 9)
 INF = float('inf')
 mod = 10 ** 9 + 7
+
+N = INT()
+if N < 1000:
+    print("ABC")
+else:
+    print("ABD")

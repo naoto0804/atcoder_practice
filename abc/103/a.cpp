@@ -26,8 +26,9 @@ const ll INF = 1000000000000000000L;
 #endif
 
 void Main() {
-
-
+    vector<ll> A(3); rep(i, 3){cin >> A.at(i);}
+    sort(A.begin(), A.end());
+    cout << A.at(2) - A.at(0) << endl;
 }
 
 int main() {
