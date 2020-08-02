@@ -26,10 +26,13 @@ const ll INF = 1000000000000000000L;
 #endif
 
 void Main() {
-    ll N; cin >> N;
-    rep(i, N){
-        ll x, y, p; cin >> x >> y >> p;
+    ll K; cin >> K;
+    ll num = 0;
+    rep(i, 1000000){
+        num = (num * 10 + 7) % K;
+        if (num == 0){cout << i + 1 << endl; exit(0);}
     }
+    cout << -1 << endl;
 }
 
 int main() {
