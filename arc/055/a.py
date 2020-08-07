@@ -36,11 +36,8 @@ sys.setrecursionlimit(10 ** 9)
 INF = float('inf')
 mod = 10 ** 9 + 7
 
-S = input()
-for i in range(len(S)):
-    if S[i].isnumeric():
-        if i + 1 < len(S) and S[i + 1].isnumeric():
-            print(10 * int(S[i]) + int(S[i + 1]))
-            exit()
-        else:
-            print(int(S[i + 1]))
+N = INT()
+
+res = ['0' for _ in range(N - 1)]
+res = ['1'] + res + ['7']
+print("".join(res))

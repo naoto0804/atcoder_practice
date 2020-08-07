@@ -36,11 +36,17 @@ sys.setrecursionlimit(10 ** 9)
 INF = float('inf')
 mod = 10 ** 9 + 7
 
-S = input()
-for i in range(len(S)):
-    if S[i].isnumeric():
-        if i + 1 < len(S) and S[i + 1].isnumeric():
-            print(10 * int(S[i]) + int(S[i + 1]))
-            exit()
-        else:
-            print(int(S[i + 1]))
+H, W = MAP()
+ans = 0
+
+if H == 1 and W == 1:
+    print(0)
+elif H == 1:
+    print(W - 1)
+elif W == 1:
+    print(H - 1)
+else:
+    ans = 2 * 4
+    ans += 3 * 2 * ((H - 2) + (W - 2))
+    ans += 4 * (H - 2) * (W - 2)
+    print(ans / 2)
