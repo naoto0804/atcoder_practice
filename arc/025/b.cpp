@@ -26,10 +26,9 @@ const ll INF = 1000000000000000000L;
 #endif
 
 void Main() {
-    // 二次元いもす
-
+    // 二次元いもす, 二次元累積和
     ll h, w; cin >> h >> w;
-    ll x[h + 1][w + 1]; rep(i, h + 1){rep(j, w + 1){x[i][j] = 0;}}
+    ll x[h + 1][w + 1]; rep(i, h + 1){rep(j, w + 1){x[i][j] = 0;}} // 累積和取るようにpaddingを入れる
     rep(i, h){
         rep(j, w){
             ll tmp;
@@ -50,8 +49,10 @@ void Main() {
     // }
     // cout << endl;
 
+
+    // 二次元累積和
     ll acc_x[h + 1][w + 1]; rep(i, h + 1){rep(j, w + 1){acc_x[i][j] = 0;}}
-    // x方向に和を取る
+    // x方向
     rep(i, h + 1){
         rep(j, w + 1){
             if (j != 0){
@@ -59,7 +60,7 @@ void Main() {
             }
         }
     }
-    // y方向に和を取る
+    // y方向
     rep(j, w + 1){
         rep(i, h + 1){
             if (i != 0){
@@ -73,6 +74,7 @@ void Main() {
         if (y1 > y2){continue;}
         rep(x1, w + 1){rep(x2, w + 1){
             if (x1 > x2){continue;}
+            // (x1, x2] かつ (y1, y2] の領域の累積和が欲しい，長方形の足し引きで表現するおなじみのやつ
             ll tmp = acc_x[y2][x2] - acc_x[y2][x1] - acc_x[y1][x2] + acc_x[y1][x1];
             if (tmp == 0){
                 ll area = (y2 - y1) * (x2 - x1);
