@@ -1,3 +1,4 @@
+// snippet
 #include "template.hpp"
 
 int main()

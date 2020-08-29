@@ -1,4 +1,5 @@
 // 素因数分解
+// O(N^(1/2))
 map<ll, ll> prime_factorize(ll N) {
     map<ll, ll> res;
     for (ll i = 2; i * i <= N; ++i) {
