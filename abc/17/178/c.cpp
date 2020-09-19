@@ -25,9 +25,23 @@ const ll INF = 1000000000000000000L;
 
 #endif
 
+ll powmod(ll N, ll K){
+    ll ans = 1;
+    rep(i, K){
+        ans = (ans * N % MOD);
+    }
+    return ans;
+}
+
 void Main() {
-
-
+    ll N; cin >> N;
+    ll ans = 0;
+    ans = (ans + powmod(10, N)) % MOD;
+    ans = (ans - powmod(9, N)) % MOD;
+    ans = (ans - powmod(9, N)) % MOD;
+    ans = (ans + powmod(8, N)) % MOD;
+    if (ans < 0){ans += MOD;}
+    cout << ans << endl;
 }
 
 int main() {

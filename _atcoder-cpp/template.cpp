@@ -5,7 +5,7 @@ using namespace std;
 
 using ll = long long;
 using P = pair<ll, ll>;
-using Graph = vector<vector<ll>>;
+using Graph = vector<vector<ll> >;
 #define rep(i, n) for(ll i=0;i<(ll)(n);i++)
 #define rep2(i, m, n) for(ll i=m;i<(ll)(n);i++)
 #define rrep(i, n, m) for(ll i=n;i>=(ll)(m);i--)

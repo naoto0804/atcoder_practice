@@ -26,8 +26,14 @@ const ll INF = 1000000000000000000L;
 #endif
 
 void Main() {
-
-
+    // A[n] = A[n - 1] + A[n - 3]
+    ll n; cin >> n;
+    vector<ll> A(n + 1, 0);
+    A.at(3) = 1;
+    rep2(i, 4, n + 1){
+        A.at(i) = (A.at(i - 1) + A.at(i - 3)) % MOD;
+    }
+    cout << A.at(n) << endl;
 }
 
 int main() {

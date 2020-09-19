@@ -26,8 +26,18 @@ const ll INF = 1000000000000000000L;
 #endif
 
 void Main() {
-
-
+    ll N; cin >> N;
+    // 座標変換 (x, y) -> (x + y, x - y)
+    // |x1 - x2| + |y1 - y2| = max(|z1 - z2|, |w1 - w2|)
+    vector<ll> a(N), b(N);
+    rep(i, N){
+        ll x, y; cin >> x >> y;
+        a.at(i) = x + y;
+        b.at(i) = x - y;
+    }
+    ll a_range = *max_element(a.begin(), a.end()) - *min_element(a.begin(), a.end());
+    ll b_range = *max_element(b.begin(), b.end()) - *min_element(b.begin(), b.end());
+    cout << max(a_range, b_range) << endl;
 }
 
 int main() {
