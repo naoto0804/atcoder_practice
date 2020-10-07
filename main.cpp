@@ -26,8 +26,6 @@ const ll INF = 1000000000000000000L;
 #endif
 
 void Main() {
-
-
 }
 
 int main() {
