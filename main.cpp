@@ -1,37 +1,59 @@
-// ctrl+shift+b
 #include <bits/stdc++.h>
-
 using namespace std;
 
-using ll = long long;
-using P = pair<ll, ll>;
-using Graph = vector<vector<ll> >;
-#define rep(i, n) for(ll i=0;i<(ll)(n);i++)
-#define rep2(i, m, n) for(ll i=m;i<(ll)(n);i++)
-#define rrep(i, n, m) for(ll i=n;i>=(ll)(m);i--)
-const int dx[4] = {1, 0, -1, 0};
-const int dy[4] = {0, 1, 0, -1};
-const int ddx[8] = {0, 1, 1, 1, 0, -1, -1, -1};
-const int ddy[8] = {1, 1, 0, -1, -1, -1, 0, 1};
-const ll MOD = 1000000007;
-const ll INF = 1000000000000000000L;
-#ifdef __DEBUG
+const int maxn = 17;
+const int inf = 0x3f3f3f3f;
 
-/**
- * For DEBUG
- * https://github.com/ta7uw/cpp-pyprint
- */
-#include "cpp-pyprint/pyprint.h"
+struct Point {
+    int x, y, z;
+};
 
-#endif
-
-void Main() {
+inline int cost(const Point& a, const Point& b) {
+    return abs(a.x - b.x) + abs(a.y - b.y) + max(0, b.z - a.z);
 }
 
-int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
-    cout << fixed << setprecision(15);
-    Main();
+Point p[maxn];
+int c[maxn][maxn];
+int dp[1 << maxn][maxn];
+
+int main(void) {
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; ++i) {
+        cin >> p[i].x >> p[i].y >> p[i].z;
+    }
+
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            c[i][j] = cost(p[i], p[j]);
+        }
+    }
+
+    int lim = 1 << n;
+    int ans = inf;
+    for (int i = 0; i < lim; ++i) {
+        for (int j = 0; j < n; ++j) {
+            dp[i][j] = inf;
+        }
+    }
+    dp[1][0] = 0;
+    for (int i = 1; i < lim; ++i) {
+        for (int j = 1; j < n; ++j) {
+            if (i & (1 << j) || !(i & 1)) continue;
+            for (int k = 0; k < n; ++k) {
+                if (i & (1 << k)) {
+                    dp[(1 << j) | i][j] =
+                        min(dp[(1 << j) | i][j], dp[i][k] + c[k][j]);
+                }
+            }
+        }
+    }
+
+    for (int i = 0; i < n; ++i) {
+        ans = min(dp[lim - 1][i] + c[i][0], ans);
+    }
+
+    cout << ans << endl;
+
     return 0;
 }

@@ -17,7 +17,7 @@
 # 全部入り
 import sys, re
 from collections import deque, defaultdict, Counter
-from math import ceil, sqrt, hypot, factorial, pi, sin, cos, radians, fabs
+from math import ceil, sqrt, hypot, factorial, pi, sin, cos, radians
 from itertools import accumulate, permutations, combinations, product
 from operator import itemgetter, mul
 from copy import deepcopy
@@ -36,8 +36,5 @@ sys.setrecursionlimit(10 ** 9)
 INF = float('inf')
 mod = 10 ** 9 + 7
 
-N = INT()
-X = list(MAP())
-print(sum([fabs(x) for x in X]))
-print(sqrt(sum([x ** 2 for x in X])))
-print(max([fabs(x) for x in X]))
+N, A, B = MAP()
+print(N - A + B)
