@@ -1,7 +1,9 @@
 // ctrl+shift+b
 #include <bits/stdc++.h>
+#include <atcoder/all>
 
 using namespace std;
+using namespace atcoder;
 
 using ll = long long;
 using P = pair<ll, ll>;
@@ -26,8 +28,21 @@ const ll INF = 1000000000000000000L;
 #endif
 
 void Main() {
-
-
+    ll N, Q; cin >> N >> Q;
+    dsu d(N);
+    vector<ll> t(Q), u(Q), v(Q);
+    rep(i, Q){cin >> t.at(i) >> u.at(i) >> v.at(i);}
+    rep(i, Q){
+        if (t.at(i) == 0){
+            d.merge(u.at(i), v.at(i));
+        } else {
+            if (d.same(u.at(i), v.at(i))){
+                cout << "1" << endl;
+            } else {
+                cout << "0" << endl;
+            }
+        }
+    }
 }
 
 int main() {

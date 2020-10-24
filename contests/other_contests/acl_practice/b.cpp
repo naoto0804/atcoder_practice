@@ -1,7 +1,9 @@
 // ctrl+shift+b
 #include <bits/stdc++.h>
+#include <atcoder/all>
 
 using namespace std;
+using namespace atcoder;
 
 using ll = long long;
 using P = pair<ll, ll>;
@@ -26,8 +28,20 @@ const ll INF = 1000000000000000000L;
 #endif
 
 void Main() {
-
-
+    ll N, Q; cin >> N >> Q;
+    fenwick_tree<ll> fw(N);
+    rep(i, N){ll a; cin >> a; fw.add(i, a);}
+    vector<ll> x(Q), y(Q), z(Q);
+    rep(i, Q){
+        cin >> x.at(i) >> y.at(i) >> z.at(i);
+    }
+    rep(i, Q){
+        if (x.at(i) == 0){
+            fw.add(y.at(i), z.at(i));
+        } else {
+            cout << fw.sum(y.at(i), z.at(i)) << endl;
+        }
+    }
 }
 
 int main() {
