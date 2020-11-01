@@ -35,3 +35,37 @@ def ZIP(n): return zip(*(MAP() for _ in range(n)))
 sys.setrecursionlimit(10 ** 9)
 INF = float('inf')
 mod = 10 ** 9 + 7
+
+S = input()
+if len(S) <= 3:
+    for str_nums in permutations(S, len(S)):
+        tmp = 0
+        for i, str_num in enumerate(str_nums):
+            tmp += (10 ** i) * int(str_num)
+        if tmp % 8 == 0:
+            print("Yes")
+            exit()
+    print("No")
+else:
+    arr = [0 for _ in range(10)]
+    for s in S:
+        arr[int(s)] += 1
+    # print(arr)
+    # 下3桁
+    for i in range(1, 125):
+        tmp_arr = [0 for _ in range(10)]
+        str_num = str(8 * i)
+        tmp_arr[0] += (3 - len(str_num))
+        for s in str_num:
+            tmp_arr[int(s)] += 1
+        # from IPython import embed; embed(); exit();
+        tmp_flag = True
+        for j in range(10):
+            if tmp_arr[j] > arr[j]:
+                tmp_flag = False
+                break
+        # print(str_num, tmp_flag)
+        if tmp_flag:
+            print("Yes")
+            exit()
+    print("No")

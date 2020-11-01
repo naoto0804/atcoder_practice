@@ -35,3 +35,21 @@ def ZIP(n): return zip(*(MAP() for _ in range(n)))
 sys.setrecursionlimit(10 ** 9)
 INF = float('inf')
 mod = 10 ** 9 + 7
+
+N = INT()
+X, Y = [], []
+ans = False
+for i in range(N):
+    x, y = list(MAP())
+    X.append(x)
+    Y.append(y)
+
+# a:b = c:d -> a * d = b * c
+for (i, j, k) in combinations(range(N), 3):
+    if (X[i] - X[j]) * (Y[i] - Y[k]) == (Y[i] - Y[j]) * (X[i] - X[k]):
+        ans = True
+
+if ans:
+    print("Yes")
+else:
+    print("No")
