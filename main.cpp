@@ -15,7 +15,7 @@ const int dx[4] = {1, 0, -1, 0};
 const int dy[4] = {0, 1, 0, -1};
 const int ddx[8] = {0, 1, 1, 1, 0, -1, -1, -1};
 const int ddy[8] = {1, 1, 0, -1, -1, -1, 0, 1};
-const ll MOD = 1000000007;
+const ll MOD = 998244353;
 const ll INF = 1000000000000000000L;
 #ifdef __DEBUG
 
@@ -28,8 +28,6 @@ const ll INF = 1000000000000000000L;
 #endif
 
 void Main() {
-
-
 }
 
 int main() {

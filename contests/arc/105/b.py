@@ -36,3 +36,9 @@ sys.setrecursionlimit(10 ** 9)
 INF = float('inf')
 mod = 10 ** 9 + 7
 
+N = INT()
+a = list(MAP())
+ans = a[0]
+for i in range(len(a) - 1):
+    ans = gcd(ans, a[i + 1])
+print(ans)

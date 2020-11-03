@@ -36,3 +36,20 @@ sys.setrecursionlimit(10 ** 9)
 INF = float('inf')
 mod = 10 ** 9 + 7
 
+# 4重ループを回避したい
+# x + y = z が何個あるかをメモ化するとO(N)に出来る
+N, K = list(MAP())
+cnt_dict = {}
+for i in range(2, 2 * N + 1):
+    if i <= N + 1:
+        cnt_dict[i] = i - 1
+    else:
+        cnt_dict[i] = 2 * N + 1 - i
+# print(cnt_dict)
+
+ans = 0
+for ab_sum in range(2, 2 * N + 1):
+    cd_sum = ab_sum - K
+    if 2 <= cd_sum <= 2 * N:
+        ans += cnt_dict[cd_sum] * cnt_dict[ab_sum]
+print(ans)

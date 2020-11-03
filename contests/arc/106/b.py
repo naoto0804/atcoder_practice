@@ -36,3 +36,22 @@ sys.setrecursionlimit(10 ** 9)
 INF = float('inf')
 mod = 10 ** 9 + 7
 
+N = INT()
+powf_dict = {}
+tmp = 1
+cnt = 0
+while tmp <= 1000000000000000000:
+    tmp *= 5
+    cnt += 1
+    powf_dict[tmp] = cnt
+
+tmp = 1
+cnt = 0
+while tmp <= 1000000000000000000:
+    tmp *= 3
+    cnt += 1
+    # powf_dict[tmp] = cnt
+    if N - tmp in powf_dict.keys():
+        print(cnt, powf_dict[N - tmp])
+        exit()
+print(-1)

@@ -17,7 +17,7 @@
 # 全部入り
 import sys, re
 from collections import deque, defaultdict, Counter
-from math import ceil, sqrt, hypot, factorial, pi, sin, cos, radians, fabs, gcd
+from math import ceil, sqrt, hypot, factorial, pi, sin, cos, radians, fabs
 from itertools import accumulate, permutations, combinations, product
 from operator import itemgetter, mul
 from copy import deepcopy
@@ -36,3 +36,8 @@ sys.setrecursionlimit(10 ** 9)
 INF = float('inf')
 mod = 10 ** 9 + 7
 
+A, B, C, D = list(MAP())
+if (A + B == C + D) or (A + C == B + D) or (A + D == B + C) or (A == B + C + D) or (B == A + C + D) or (C == A + B + D) or (D == A + B + C):
+    print("Yes")
+else:
+    print("No")
