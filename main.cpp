@@ -27,6 +27,13 @@ const ll INF = 1000000000000000000L;
 
 #endif
 
+bool op(bool cur, bool is_lamp, bool is_block){
+    bool ans = cur;
+    if (is_lamp){ans = true;}
+    if (is_block){ans = false;}
+    return ans;
+}
+
 void Main() {
 }
 

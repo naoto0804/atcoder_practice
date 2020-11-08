@@ -35,3 +35,18 @@ def ZIP(n): return zip(*(MAP() for _ in range(n)))
 sys.setrecursionlimit(10 ** 9)
 INF = float('inf')
 mod = 10 ** 9 + 7
+
+N = INT()
+A = list(MAP())
+ans = 0
+acc = 0
+cur_pos = 0
+max_diff = 0
+
+for i in range(N):
+    acc = acc + A[i]
+    max_diff = max(max_diff, acc)  # 一区切り(A1, A1 + A2, A1 + A2 + A3, ...)の中で最大
+    ans = max([ans, cur_pos + acc, cur_pos + max_diff])
+    cur_pos += acc
+
+print(ans)

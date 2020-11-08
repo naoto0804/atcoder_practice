@@ -35,3 +35,21 @@ def ZIP(n): return zip(*(MAP() for _ in range(n)))
 sys.setrecursionlimit(10 ** 9)
 INF = float('inf')
 mod = 10 ** 9 + 7
+
+# A, B = list(MAP())
+# print(2 * A + 100 - B)
+
+N = INT()
+A = list(MAP())
+
+cnt = 0
+ans = 0
+for i in range(2, max(A) + 1):
+    tmp_cnt = 0
+    for a in A:
+        if a % i == 0:
+            tmp_cnt += 1
+    if tmp_cnt > cnt:
+        cnt = tmp_cnt
+        ans = i
+print(ans)
