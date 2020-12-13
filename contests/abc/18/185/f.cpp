@@ -27,8 +27,37 @@ const ll INF = 1000000000000000000L;
 
 #endif
 
+int op(int a, int b) {
+    return a ^ b;
+}
+
+int e() {
+    return (int)(1e9);
+}
+
 void Main() {
     int N, Q; cin >> N >> Q;
+
+    // 各range queryをlogNで処理できれば全体の計算時間は最悪でもNlogNなので間に合う -> セグ木
+    segtree<int, op, e> seg(N);
+    rep(i, N){
+        int a; cin >> a;
+        seg.set(i, a);
+    }
+    rep(i, Q){
+        int t, x, y; cin >> t >> x >> y;
+        if (t == 1){
+            x--;
+            seg.set(x, seg.get(x) ^ y);
+        } else {
+            x--; y--;
+            if (x == y){
+                cout << seg.get(x) << endl;
+            } else {
+                cout << seg.prod(x, y + 1) << endl;
+            }
+        }
+    }
 }
 
 int main() {
