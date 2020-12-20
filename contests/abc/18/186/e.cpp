@@ -48,6 +48,23 @@ ll mod_inverse(ll a, ll mod) {
 
 void Main() {
     ll T; cin >> T;
+    rep(i, T){
+        ll N, S, K; cin >> N >> S >> K;
+        // S + xK = 0 (modN) を見つければ良い
+        // -> Kx = (N - S) (modN)
+        // Ax = B (modM) の解き方は
+        // (i) d = gcd(A, B, M)としてA,B,Mをそれぞれdで割る
+        // (ii) gcd(A, M) != 1　の時解無し
+        // (iii) gcd(A, M) == 1 の時modMにおけるAの逆元A^{-1}についてx=A^{-1}B
+        ll A = K, B = N - S, M = N;
+        ll d = gcd(gcd(A, B), M);
+        A = A / d; B = B / d; M = M / d;
+        if (gcd(A, M) != 1){
+            cout << -1 << endl;
+        } else {
+            cout << mod_inverse(A, M) * B % M << endl;
+        }
+    }
 }
 
 int main() {
