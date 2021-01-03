@@ -36,4 +36,23 @@ sys.setrecursionlimit(10 ** 9)
 INF = float('inf')
 mod = 10 ** 9 + 7
 
-N = int(input())
+N = INT()
+x = dict()
+
+for i in range(N):
+    text = input()
+    query = text.lstrip("!")
+    value = [1, 0] if text == query else [0, 1]
+    value = np.array(value)
+
+    if query not in x.keys():
+        x[query] = value
+    else:
+        x[query] += value
+
+ans = "satisfiable"
+for key, value in x.items():
+    if value[0] > 0 and value[1] > 0:
+        ans = key
+print(ans)
+

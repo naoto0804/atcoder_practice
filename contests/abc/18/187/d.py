@@ -36,4 +36,20 @@ sys.setrecursionlimit(10 ** 9)
 INF = float('inf')
 mod = 10 ** 9 + 7
 
-N = int(input())
+N = INT()
+ab_list = [list(MAP()) for _ in range(N)]
+sum_a = sum(ab_list[i][0] for i in range(N))
+sum_b = 0
+
+# (効果量, Aの減少量, Bの増加量)
+x = [(2 * a + b, -a, a + b) for (a, b) in ab_list]
+x = sorted(x, key=lambda x: x[0], reverse=True)
+
+# 効果量が多い方から演説していって，投票数が超えたら終了
+ind = 0
+while sum_a >= sum_b:
+    sum_a += x[ind][1]
+    sum_b += x[ind][2]
+    ind += 1
+
+print(ind)

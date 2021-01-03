@@ -36,4 +36,16 @@ sys.setrecursionlimit(10 ** 9)
 INF = float('inf')
 mod = 10 ** 9 + 7
 
-N = int(input())
+N = INT()
+xy_list = [list(MAP()) for _ in range(N)]
+
+ans = 0
+for i in range(N):
+    for j in range(N):
+        if i >= j: continue
+        xdiff = xy_list[j][0] - xy_list[i][0]
+        if xdiff == 0: continue
+        ydiff = xy_list[j][1] - xy_list[i][1]
+        if -1.0 <= ydiff / xdiff <= 1.0:
+            ans += 1
+print(ans)

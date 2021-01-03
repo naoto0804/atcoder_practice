@@ -36,4 +36,13 @@ sys.setrecursionlimit(10 ** 9)
 INF = float('inf')
 mod = 10 ** 9 + 7
 
-N = int(input())
+A, B = list(MAP())
+
+def func(n):
+    ans = 0
+    while n > 0:
+        ans = ans + (n % 10)
+        n = n // 10
+    return ans
+
+print(max(func(A), func(B)))
