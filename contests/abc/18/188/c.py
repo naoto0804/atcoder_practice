@@ -35,3 +35,22 @@ def ZIP(n): return zip(*(MAP() for _ in range(n)))
 sys.setrecursionlimit(10 ** 9)
 INF = float('inf')
 mod = 10 ** 9 + 7
+
+N = int(input())
+A = list(MAP())
+inds = list(range(len(A)))
+pairs = list(zip(A, inds))
+
+for i in range(N - 1):
+    new_pairs = []
+    for j in range(2 ** (N - 1 - i)):
+        if pairs[2 * j][0] < pairs[2 * j + 1][0]:
+            new_pairs.append(pairs[2 * j + 1])
+        else:
+            new_pairs.append(pairs[2 * j])
+    pairs = new_pairs
+
+if pairs[0][0] < pairs[1][0]:
+    print(pairs[0][1] + 1)
+else:
+    print(pairs[1][1] + 1)

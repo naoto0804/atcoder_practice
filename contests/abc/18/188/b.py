@@ -35,3 +35,16 @@ def ZIP(n): return zip(*(MAP() for _ in range(n)))
 sys.setrecursionlimit(10 ** 9)
 INF = float('inf')
 mod = 10 ** 9 + 7
+
+N = int(input())
+A = list(MAP())
+B = list(MAP())
+ans = 0
+
+for i in range(N):
+    ans += A[i] * B[i]
+
+if ans == 0:
+    print("Yes")
+else:
+    print("No")

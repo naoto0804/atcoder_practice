@@ -35,3 +35,17 @@ def ZIP(n): return zip(*(MAP() for _ in range(n)))
 sys.setrecursionlimit(10 ** 9)
 INF = float('inf')
 mod = 10 ** 9 + 7
+
+N = INT()
+cnt = [[0 for i in range(N + 1)] for j in range(2)]
+cnt[0][0] = 1 # 変数をx個消化した時点でfalse
+cnt[1][0] = 1 # 変数をx個消化した時点でtrue
+
+for i in range(N):
+    if input() == "AND":
+        cnt[0][i + 1] = cnt[1][i] + cnt[0][i] * 2
+        cnt[1][i + 1] = cnt[1][i]
+    else:
+        cnt[0][i + 1] = cnt[0][i]
+        cnt[1][i + 1] = 2 * cnt[1][i] + cnt[0][i]
+print(cnt[1][N])

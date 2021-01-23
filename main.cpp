@@ -47,7 +47,7 @@ ll mod_inverse(ll a, ll mod) {
 }
 
 void Main() {
-    ll T; cin >> T;
+    ll N; cin >> N;
 }
 
 int main() {
