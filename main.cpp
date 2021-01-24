@@ -27,27 +27,8 @@ const ll INF = 1000000000000000000L;
 
 #endif
 
-ll gcd(ll a, ll b) {
-    if (b == 0) return a;
-    else return gcd(b, a % b);
-}
-
-ll mod_inverse(ll a, ll mod) {
-    ll b = mod, u = 1, v = 0;
-    while (b) {
-        ll t = a / b;
-        a -= t * b;
-        swap(a, b);
-        u -= t * v;
-        swap(u, v);
-    }
-    u %= mod;
-    if (u < 0) u += mod;
-    return u;
-}
-
 void Main() {
-    ll N; cin >> N;
+
 }
 
 int main() {
