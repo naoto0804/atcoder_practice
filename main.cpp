@@ -122,7 +122,7 @@ public:
 // https://scrapbox.io/pocala-kyopro/%E8%BB%A2%E5%80%92%E6%95%B0
 void Main()
 {
-    ll N, M; cin >> N >> M;
+    ll N; cin >> N;
 }
 
 int main()
