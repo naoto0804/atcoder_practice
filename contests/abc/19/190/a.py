@@ -36,32 +36,15 @@ sys.setrecursionlimit(10 ** 9)
 INF = float('inf')
 mod = 10 ** 9 + 7
 
-N, M = list(MAP())
-cond = defaultdict(int)
-for i in range(M):
-    a, b = list(MAP())
-    cond[(a, b)] += 1
+A, B, C = list(MAP())
 
-K = INT()
-CD = []
-for i in range(K):
-    CD.append(list(MAP()))
-
-ans = 0
-#bit全探索
-for i in range(2 ** K):
-    bag = set()
-    tmp = 0
-    for j in range(K):
-        if ((i >> j) & 1):
-            bag.add(CD[j][1])
-        else:
-            bag.add(CD[j][0])
-
-    for (a, b), cnt in cond.items():
-        if a in bag and b in bag:
-            tmp += cnt
-
-    if tmp > ans:
-        ans = tmp
-print(ans)
+if C == 0:
+    if A <= B:
+        print("Aoki")
+    else:
+        print("Takahashi")
+else:
+    if A < B:
+        print("Aoki")
+    else:
+        print("Takahashi")
