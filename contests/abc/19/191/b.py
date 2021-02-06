@@ -1,3 +1,19 @@
+# # Make IO faster
+# import sys
+# input = sys.stdin.readline
+
+# # get single (or) multiple str
+# X = input()
+
+# # get single int
+# N = int(input())
+# # get multiple int (e.g., 2)
+# X, Y = map(int, input().split())
+# # get multiple int (e.g., 2) for N lines
+# XY = [list(map(int, input().split())) for _ in range(N)]
+
+# from IPython import embed; embed(); exit();
+
 # 全部入り
 import sys, re
 from collections import deque, defaultdict, Counter
@@ -20,3 +36,7 @@ sys.setrecursionlimit(10 ** 9)
 INF = float('inf')
 mod = 10 ** 9 + 7
 
+N, X = list(MAP())
+A = list(MAP())
+A = [str(a) for a in A if a != X]
+print(" ".join(A))
