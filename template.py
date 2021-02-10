@@ -1,20 +1,3 @@
-# # Make IO faster
-# import sys
-# input = sys.stdin.readline
-
-# # get single (or) multiple str
-# X = input()
-
-# # get single int
-# N = int(input())
-# # get multiple int (e.g., 2)
-# X, Y = map(int, input().split())
-# # get multiple int (e.g., 2) for N lines
-# XY = [list(map(int, input().split())) for _ in range(N)]
-
-# from IPython import embed; embed(); exit();
-
-# 全部入り
 import sys, re
 from collections import deque, defaultdict, Counter
 from math import ceil, sqrt, hypot, factorial, pi, sin, cos, radians

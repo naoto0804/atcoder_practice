@@ -1,13 +1,12 @@
-# 全部入り
 import sys, re
 from collections import deque, defaultdict, Counter
-from math import ceil, sqrt, hypot, factorial, pi, sin, cos, radians, fabs, gcd
+from math import ceil, sqrt, hypot, factorial, pi, sin, cos, radians
 from itertools import accumulate, permutations, combinations, product
 from operator import itemgetter, mul
 from copy import deepcopy
 from string import ascii_lowercase, ascii_uppercase, digits
-from bisect import bisect, bisect_left, insort_left
-# from fractions import gcd
+from bisect import bisect, bisect_left
+from fractions import gcd
 from heapq import heappush, heappop
 from functools import reduce
 import numpy as np
