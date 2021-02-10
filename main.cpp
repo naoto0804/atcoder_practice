@@ -27,16 +27,11 @@ const ll INF = 1000000000000000000L;
 
 #endif
 
-void Main()
-{
+void Main(){
     ll N, M; cin >> N >> M;
 }
 
-
-int main()
-
-
-{
+int main(){
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
     cout << fixed << setprecision(15);
