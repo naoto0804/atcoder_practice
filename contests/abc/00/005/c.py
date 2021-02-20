@@ -4,33 +4,6 @@ A = list(map(int, input().split()))
 M = int(input())
 B = list(map(int, input().split()))
 
-# 二分探索
-# 見つからないと-1を返すバージョン
-# l = 0, r = N からスタート
-def binary_search(arr, l, r, x):
-    while l < r:
-        mid = l + (r - l) // 2
-        if arr[mid] == x:
-            return mid
-        elif arr[mid] > x:
-            r = mid
-        else:
-            l = mid + 1
-    return -1
-
-# 見つからないと丁度いい挿入場所を返すパターン
-# l = 0, r = N からスタート
-def binary_search(arr, l, r, x):
-    while l < r:
-        mid = l + (r - l) // 2
-        if arr[mid] == x:
-            return mid
-        elif arr[mid] > x:
-            r = mid
-        else:
-            l = mid + 1
-    return l
-
 
 # naive O(NM) solution
 # for b in B:

@@ -30,6 +30,21 @@ def bisect(arr: List[int], key: int, insert_left: bool = True):
     return left
 
 
+def bisect_element_index_search(arr: List[int], key: int):
+    left = 0
+    right = len(arr)
+    while left < right:
+        middle = (right - left) // 2 + left
+
+        if key == arr[middle]:
+            return middle
+        elif key < arr[middle]:
+            right = middle
+        else:
+            left = middle + 1
+    return -1
+
+
 def binary_search(arr: List[int], key: int):
     left = 0
     right = len(arr)
@@ -43,3 +58,19 @@ def binary_search(arr: List[int], key: int):
         else:
             left = middle + 1
     return -1
+
+# 典型的なやつ，整数Nの平方根
+def bisect_square_search(target):
+    left = 0
+    right = 10
+
+    while left <= right:
+        middle = (right - left) // 2 + left
+        tmp = middle ** 2
+        if tmp == target:
+            return middle
+        elif target < tmp:
+            right = middle - 1
+        else:
+            left = middle + 1
+    return right
