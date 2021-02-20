@@ -1,0 +1,4 @@
+# how to install bits/stdc++.h
+https://annin401.hatenablog.com/entry/2019/03/29/005224
+最後の行はやらなくていい
+

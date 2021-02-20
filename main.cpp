@@ -28,7 +28,7 @@ const ll INF = 1000000000000000000L;
 #endif
 
 void Main() {
-
+    ll H, W, K; cin >> H >> W >> K;
 
 }
 
