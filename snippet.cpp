@@ -70,6 +70,11 @@ int main()
     // max
     cout << *max_element(X.begin(), X.end()) << endl;
 
+    // slice
+    vector<ll> a = {1, 2, 3, 4, 5};
+    vector<ll> b = vector<ll>(a.begin(), a.begin() + 3); // {1, 2, 3}
+    vector<ll> b = vector<ll>(a.begin() + 3, a.end()); // {4, 5}
+
     // argsort
     vector<int> indices(N), array(N);
     iota(indices.begin(), indices.end(), 0);
