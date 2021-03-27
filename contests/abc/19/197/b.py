@@ -1,6 +1,6 @@
 import sys, re
 from collections import deque, defaultdict, Counter
-from math import ceil, sqrt, hypot, factorial, pi, sin, cos, radians, floor, log10
+from math import ceil, sqrt, hypot, factorial, pi, sin, cos, radians
 from itertools import accumulate, permutations, combinations, product
 from operator import itemgetter, mul
 from copy import deepcopy
@@ -19,13 +19,20 @@ sys.setrecursionlimit(10 ** 9)
 INF = float('inf')
 mod = 10 ** 9 + 7
 
-import math
+H, W, X, Y = list(MAP())
+S = []
+for i in range(H):
+    S.append(input())
+X -= 1
+Y -= 1
 
-N = INT()
-ans = 0
-for i in range(1, 1000000):
-    text = str(i)
-    num = int(text + text)
-    if num <= N:
-        ans += 1
-print(ans)
+cnt = 1
+for (d_x, d_y) in [[-1, 0], [0, -1], [1, 0], [0, 1]]:
+    x, y = X, Y
+    while True:
+        x, y = x + d_x, y + d_y
+        if x < 0 or x >= H or y < 0 or y >= W or S[x][y] == '#':
+            break
+        else:
+            cnt += 1
+print(cnt)

@@ -6,10 +6,10 @@ from operator import itemgetter, mul
 from copy import deepcopy
 from string import ascii_lowercase, ascii_uppercase, digits
 from bisect import bisect, bisect_left
-from fractions import gcd
+# from fractions import gcd
 from heapq import heappush, heappop
 from functools import reduce
-import numpy as np
+# import numpy as np
 def input(): return sys.stdin.readline().strip()
 def INT(): return int(input())
 def MAP(): return map(int, input().split())

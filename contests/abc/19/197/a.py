@@ -9,7 +9,7 @@ from bisect import bisect, bisect_left
 # from fractions import gcd
 from heapq import heappush, heappop
 from functools import reduce
-# import numpy as np
+import numpy as np
 def input(): return sys.stdin.readline().strip()
 def INT(): return int(input())
 def MAP(): return map(int, input().split())
@@ -18,3 +18,6 @@ def ZIP(n): return zip(*(MAP() for _ in range(n)))
 sys.setrecursionlimit(10 ** 9)
 INF = float('inf')
 mod = 10 ** 9 + 7
+
+S = input()
+print(S[1:] + S[0])
