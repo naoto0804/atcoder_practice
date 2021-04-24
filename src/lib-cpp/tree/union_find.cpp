@@ -1,3 +1,5 @@
+// Note: use atcoder library
+// https://atcoder.github.io/ac-library/master/document_ja/dsu.html
 /**
  * Library
  * --------------------------------------------------------
